@@ -67,4 +67,5 @@
   display: flex;
   align-items: center;
   margin-right: 4px;
+  cursor: pointer;
 }

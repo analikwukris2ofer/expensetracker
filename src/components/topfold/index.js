@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./topfold.module.css";
 
 const TopFold = () => {
@@ -19,21 +20,27 @@ const TopFold = () => {
               onChange={(e) => handleQuery(e)}
             />
           </div>
-          <div className={styles["add-button"]}>
-            <i class="fi fi-rr-add"></i>
-            <label>Add</label>
-          </div>
+          <Link to="/addexpense">
+            <div className={styles["add-button"]}>
+              <i class="fi fi-rr-add"></i>
+              <label>Add</label>
+            </div>
+          </Link>
         </div>
       ) : (
         <div className={styles["add-topfold"]}>
-          <div className={styles["add-topfold-button"]}>
-            <i class="fi fi-sr-angle-left"></i>
-            <label>Back</label>
-          </div>
-          <div className={styles["add-topfold-button"]}>
-            <i class="fi fi-rr-cross-circle"></i>
-            <label>Cancel</label>
-          </div>
+          <Link to="/">
+            <div className={styles["add-topfold-button"]}>
+              <i class="fi fi-sr-angle-left"></i>
+              <label>Back</label>
+            </div>
+          </Link>
+          <Link to="/">
+            <div className={styles["add-topfold-button"]}>
+              <i class="fi fi-rr-cross-circle"></i>
+              <label>Cancel</label>
+            </div>
+          </Link>
         </div>
       )}
     </div>
