@@ -1,0 +1,31 @@
+.innermodal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addedimage {
+  height: 360px;
+}
+
+.takehomebutton {
+  border: 1px solid black;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.takehomebutton i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
+}
+
+@media only screen and (max-width: 480px) {
+  .addedimage {
+    height: 240px;
+  }
+}

@@ -1,0 +1,109 @@
+.addform {
+  background: #d29594;
+  box-shadow: 20px 20px 60px #b37f7e, -20px -20px 60px #f2abaa;
+  margin: 6px 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 60vh;
+  border-radius: 8px;
+}
+
+.formitem {
+  margin: 12px 0px;
+  width: 70%;
+  padding: 4px;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.formitem label {
+  background-color: lightgray;
+  padding: 2px 12px;
+  border-radius: 4px;
+}
+
+.formitem input {
+  font-size: 16px;
+  width: 70%;
+  border: none;
+  outline: none;
+}
+
+.categoryparent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.category {
+  position: relative;
+  width: 40%;
+}
+
+.categorydropdown {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  align-items: center;
+  margin: 12px 0px;
+  border-radius: 6px;
+  padding: 4px;
+}
+.categorydropdown i {
+  display: flex;
+  align-items: center;
+}
+
+.categorycontainer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  /* removes the drop down out of the document flow */
+  width: 100%;
+  background-color: white;
+}
+
+.categoryitem {
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0px;
+  cursor: pointer;
+}
+
+.categoryitem img {
+  height: 32px;
+  margin-right: 20px;
+}
+
+.formaddbutton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.formaddbutton div {
+  display: flex;
+  border: 1px solid black;
+  padding: 2px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.formaddbutton div i {
+  display: flex;
+  align-items: center;
+  margin-left: 6px;
+}
+
+@media only screen and (max-width: 480px) {
+  .formitem {
+    width: 100%;
+  }
+  .amountinput {
+    width: 50% !important;
+  }
+  .category {
+    width: 80%;
+  }
+}

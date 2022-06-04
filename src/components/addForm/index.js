@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
 import { categories } from "../constants/categories";
 import { addExpense } from "../redux/actions/expenses";
+import "react-toastify/dist/ReactToastify.css";
 import styles from "./addform.module.css";
+import SuccessModal from "./success-modal";
 
 const AddForm = () => {
   const ExpenseCategory = categories;
@@ -11,6 +14,7 @@ const AddForm = () => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState();
+  const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
 
   const handleTitle = (e) => {
@@ -30,6 +34,8 @@ const AddForm = () => {
   };
   const handleSubmit = () => {
     if (title === "" || amount === "" || !category) {
+      const notify = () => toast("Please enter complete data");
+      notify();
       // this means if any of this fields are empty
       console.log("No data");
       return;
@@ -41,9 +47,19 @@ const AddForm = () => {
       createdAt: new Date(),
     };
     dispatch(addExpense(data));
+    setModalOpen(true);
   };
   return (
     <div className={styles.addform}>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={1600}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+      />
+      {/* container called in handleSubmit to show if there was an error in the input */}
+      <SuccessModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
       <div className={styles.formitem}>
         <label>Title</label>
         <input
@@ -68,7 +84,11 @@ const AddForm = () => {
             onClick={() => setCategoryOpen(!categoryOpen)}
           >
             <label>{category ? category.title : "Category"}</label>
-            <i class="fi fi-rr-angle-small-down"></i>
+            {categoryOpen ? (
+              <i class="fi fi-rr-angle-small-down"></i>
+            ) : (
+              <i class="fi fi-rr-angle-small-right"></i>
+            )}
           </div>
           {categoryOpen && (
             <div className={styles.categorycontainer}>
