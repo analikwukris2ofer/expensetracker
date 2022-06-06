@@ -1,6 +1,7 @@
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import Footer from "./components/footer";
 import Header from "./components/header";
 import AddExpense from "./components/pages/addexpense";
 import Home from "./components/pages/home";
@@ -15,7 +16,7 @@ function App() {
         <Route path="/addexpense" component={AddExpense} />
       </Switch>
 
-      <div>Footer</div>
+      <Footer />
     </Router>
   );
 }
