@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, compose, createStore } from "redux";
+
 import { expenseReducer } from "../reducers/expenses";
 
 const reducer = combineReducers({
@@ -6,5 +7,11 @@ const reducer = combineReducers({
 });
 
 const initialState = {};
-const store = createStore(reducer, initialState);
+const store = createStore(
+  reducer,
+  initialState,
+  compose(
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
 export default store;

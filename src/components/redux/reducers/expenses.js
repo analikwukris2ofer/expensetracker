@@ -1,4 +1,4 @@
-import { ADD_EXPENSE } from "../action-types/expenses";
+import { ADD_EXPENSE, DELETE_EXPENSE } from "../action-types/expenses";
 
 const initialState = {
   expensesList: [],
@@ -9,7 +9,17 @@ export const expenseReducer = (state = initialState, action) => {
     case ADD_EXPENSE: {
       return {
         ...state,
-        expenseList: [...state.expensesList, action.payload],
+        expensesList: [...state.expensesList, action.payload],
+      };
+    }
+    case DELETE_EXPENSE: {
+      const { payload } = action;
+      const updatedList = state.expensesList.filter(
+        (item) => item.createdAt != payload.createdAt
+      );
+      return {
+        ...state,
+        expensesList: updatedList,
       };
     }
     default:
