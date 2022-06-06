@@ -19,7 +19,8 @@ const ExpenseList = () => {
   //     amount: 1234,
   //   },
   // ];
-  const { expensesList: list } = useSelector((state) => state.expenses);
+  const { expensesList: list, query } = useSelector((state) => state.expenses);
+  const filteredList = list.filter((item) => item.title.includes(query));
   const notifySuccess = () => toast.success("Expense Deleted");
 
   return (
@@ -32,7 +33,9 @@ const ExpenseList = () => {
         closeOnClick
       />
       {list.length ? (
-        list.map((item) => <Card item={item} notifySuccess={notifySuccess} />)
+        filteredList.map((item) => (
+          <Card item={item} notifySuccess={notifySuccess} />
+        ))
       ) : (
         <div className={styles.emptystate}>
           <img
